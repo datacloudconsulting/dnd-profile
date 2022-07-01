@@ -36,11 +36,13 @@ function App() {
         <div style={{ width: '40%' }}>
           <BorderContainer>
             <b>Magic</b>
-            {characterClass === WIZARD ? <>
-              <p>Magic is life + 10</p>
-              <p>Magic: {parseInt(life) + 10}</p></>
+            {characterClass === WIZARD ?
+              <>
+                <p>Magic is life + 10</p>
+                <p>Magic: {parseInt(life) + 10}</p>
+              </>
               :
-              <p>Only wizards have magic level</p>}
+              <p>Only wizards have magic</p>}
           </BorderContainer>
         </div>
       </div>
