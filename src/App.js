@@ -23,14 +23,14 @@ function App() {
       <div style={{ display: 'flex', flexWrap: 'no-wrap' }}>
         <div style={{ width: '20%' }}>
           <SelectEntry name='Character Class' values={classesList} callback={e => setCharacterClass(e)} />
-          <ValueEntry name='Life' callback={e => setLife(e)} />
-          <ValueEntry name='Strength' callback={e => setStrength(e)} />
+          <ValueEntry name='Life' callback={e => setLife(parseInt(e))} />
+          <ValueEntry name='Strength' callback={e => setStrength(parseInt(e))} />
         </div>
         <div style={{ width: '40%' }}>
           <BorderContainer>
             <b>Resistance</b>
             <p>Your resistance is (life + strength)/2<br />(+ 2 if you are a warrior)</p>
-            <p>Resistance: {Math.round((parseInt(life) + parseInt(strength)) / 2, 0) + (characterClass === WARRIOR ? 2 : 0)}</p>
+            <p>Resistance: {Math.round((life + strength) / 2, 0) + (characterClass === WARRIOR ? 2 : 0)}</p>
           </BorderContainer>
         </div>
         <div style={{ width: '40%' }}>
@@ -39,7 +39,7 @@ function App() {
             {characterClass === WIZARD ?
               <>
                 <p>Magic is life + 10</p>
-                <p>Magic: {parseInt(life) + 10}</p>
+                <p>Magic: {life + 10}</p>
               </>
               :
               <p>Only wizards have magic</p>}
